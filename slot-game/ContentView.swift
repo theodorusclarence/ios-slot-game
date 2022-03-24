@@ -19,7 +19,7 @@ struct ContentView: View {
                 Spacer()
                 Text("SwiftUI Slots!").font(.largeTitle)
                 Spacer()
-                Text("Credits: 1025")
+                Text("Credits: \(credits)")
                 Spacer()
                 
                 HStack {
@@ -42,6 +42,12 @@ struct ContentView: View {
                     slot1 = Int.random(in: 1...3)
                     slot2 = Int.random(in: 1...3)
                     slot3 = Int.random(in: 1...3)
+                    
+                    if (slot1 == slot2 && slot2 == slot3) {
+                        credits += 100
+                    } else {
+                        credits -= 10
+                    }
                 }
                 .padding(10)
                 .padding(.horizontal, 40.0)
